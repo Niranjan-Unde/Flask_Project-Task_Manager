@@ -37,13 +37,6 @@ def deleterecord(tid):
     db.commit()
     disconnectDB()
 
-# def updaterecord(tid):
-#     connectDB()
-#     updateQ=f"delete from todo where id={tid}"
-#     cur.execute(updateQ)
-#     db.commit()
-#     disconnectDB()
-
 def readOneRecord(tid):
     connectDB()
     readOneQ=f'select * from todo where id={tid}'
