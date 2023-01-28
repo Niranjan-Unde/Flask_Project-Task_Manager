@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <title>Home</title>
+</head>
+<body background="{{url_for('static',filename='images/image1.jpg')}}" style="background-repeat: no-repeat;background-size: cover;">
+    <div class="container">
+    <div>
+        <h1 class="text-center alert alert-danger" style="margin-top: 50px;">To Do Tasks</h1>
+        <a href="/insert" class="btn btn-primary">Add Task</a>
+    </div>
+    <div style="font-weight: bold;font-size: 15px;
+    text-shadow: 2px 2px 5px orange;">
+        <table class="table" style="color: white; ">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Task</th>
+                <th>Status</th>
+                <th colspan="2"></th>
+            </tr>
+            {% for d in data %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{d[1]}}</td>
+                <td>{{d[2]}}</td>
+                <td><a href="/update/{{d[0]}}" class="btn btn-warning">Update</a></td>
+                <td><a href="/delete/{{d[0]}}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+</body>
+</html>

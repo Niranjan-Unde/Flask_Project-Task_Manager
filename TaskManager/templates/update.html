@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+   <title>Update</title>
+</head>
+
+<body background="{{url_for('static',filename='images/image1.jpg')}}" style="background-repeat: no-repeat;background-size: cover;">
+    <div class="container">
+        <div>
+            <h1 class="text-center alert alert-danger" style="margin-top: 50px;">Update Task</h1>
+        </div>
+        <div style="font-weight: bold;font-size: 15px;
+        text-shadow: 2px 2px 5px orange;color: white;">
+            <form action="/updatetask/{{data[0]}}">
+                <label for="task" class="form-label">Task:</label>
+                <input type="text" class="form-control" name="task" value="{{data[1]}}">
+                <br>
+                <label for="status" class="form-label">Status:</label>
+                <select name="status" class="form-select" id="status">
+                    <option>Open this select menu</option>
+                    <option {% if data[2]=="New" %}selected{% endif %}>New</option>
+                    <option {% if data[2]=="Started" %}selected{% endif %}>Started</option>
+                    <option {% if data[2]=="InProgress" %}selected{% endif %}>InProgress</option>
+                    <option {% if data[2]=="Completed" %}selected{% endif %}>Completed</option>
+                </select><br>
+                <input type="submit" class="btn btn-success" value="Update">
+                <a href="/" class="btn btn-warning">Home</a>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
